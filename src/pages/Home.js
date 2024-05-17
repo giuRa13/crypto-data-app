@@ -12,7 +12,7 @@ function Home() {
         first-letter: content-center
         items-center
         relative
-        text-white
+        text-gray-100
         font-nunito'>
     
     <div className='w-screen h-screen bg-gray-300 fixed -z-10'></div>

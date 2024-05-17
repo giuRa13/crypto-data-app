@@ -3,18 +3,18 @@ import { NavLink } from 'react-router-dom'
 
 function Navigation() {
   return (
-    <nav className='w-[60%] mt-16 flex justify-around align-middle
+    <nav className='w-[55%] mt-16 flex justify-around align-middle
         border border-orange rounded-md'>
         
     <NavLink 
         to="/"
         end
         className={({isActive}) => {
-            return `w-full text-base text-center m-2.5
-            ${
+            return `w-full text-base text-center m-3
+            ${//bg-gray-200
                 isActive 
                 ? "bg-orange text-gray-300" 
-                : "bg-gray-200 text-gray-100 hover:text-orange active:bg-orange active:text-gray-300"
+                : "bg-darkgrey text-gray-100 hover:text-orange active:bg-orange active:text-gray-300"
             }
             cursor-pointer border-0 rounded capitalize font-bold`;
         }}>
@@ -28,7 +28,7 @@ function Navigation() {
             ${
                 isActive 
                 ? "bg-orange text-gray-300" 
-                : "bg-gray-200 text-gray-100 hover:text-orange active:bg-orange active:text-gray-300"
+                : "bg-darkgrey text-gray-100 hover:text-orange active:bg-orange active:text-gray-300"
             }
             cursor-pointer border-0 rounded capitalize font-bold`;
         }}>
@@ -42,7 +42,7 @@ function Navigation() {
             ${
                 isActive 
                 ? "bg-orange text-gray-300" 
-                : "bg-gray-200 text-gray-100 hover:text-orange active:bg-orange active:text-gray-300"
+                : "bg-darkgrey text-gray-100 hover:text-orange active:bg-orange active:text-gray-300"
             }
             cursor-pointer border-0 rounded capitalize font-bold`;
         }}>

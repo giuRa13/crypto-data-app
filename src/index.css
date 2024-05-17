@@ -11,9 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }*/
+:root{
+  --orangred: #ff4500;
+  --orange:  #fc5b23;
+  --grey: #666;
+  --darkgrey: #2f2f2f;
+  --darkgrey2: #181818;
+  --black2: #080b0c;
+  --green: #25da72;
+}
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
+::selection{
+  background-color: var(--green);
+  color: var(--orange);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--darkgrey2);
+  border-radius: 3rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 3rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange);
+}

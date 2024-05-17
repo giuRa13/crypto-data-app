@@ -14,13 +14,13 @@ function TableComponent() {
 
   return (
     <div className='
-        flex flex-col mt-9 
-        border border-gray-100 rounded'
+        flex flex-col mt-12
+        border border-darkgrey rounded'
     >
         {
             cryptoData ? <table className='w-full table-auto'>      
             <thead className='capitalize text-base text-orange font-medium
-                border-b border-gray-100'>
+                border-b border-darkgrey'>
                 <tr>
                     <th className='py-1'>coin</th>
                     <th className='py-1'>rank</th>
@@ -38,7 +38,7 @@ function TableComponent() {
                     cryptoData.map(data => {
                         return(
                             <tr className='text-center text-base text-gray-100
-                            border-b border-gray-100
+                            border-b border-darkgrey
                             hover:bg-gray-200
                             last:border-b-0'
                             key={data.id}>
@@ -46,7 +46,7 @@ function TableComponent() {
                                     <button className='outline-0 border-0 bg-none cursor-pointer'>
                                         <svg className='w-[3rem] ml-2.5 fill-gray-100 hover:fill-orange'
                                         xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
-                                        <path /*fill="#e62e00"*/ d="M9.6 15.65L12 13.8l2.4 1.85l-.9-3.05l2.25-1.6h-2.8L12 7.9l-.95 3.1h-2.8l2.25 1.6zm-1.91 2.696l1.614-5.33L5.115 10h5.216L12 4.462L13.67 10h5.215l-4.189 3.016l1.614 5.33L12 15.07zM12 11.775"/>
+                                        <path /*fill=""*/ d="M9.6 15.65L12 13.8l2.4 1.85l-.9-3.05l2.25-1.6h-2.8L12 7.9l-.95 3.1h-2.8l2.25 1.6zm-1.91 2.696l1.614-5.33L5.115 10h5.216L12 4.462L13.67 10h5.215l-4.189 3.016l1.614 5.33L12 15.07zM12 11.775"/>
                                         </svg>
                                     </button>
                                     <img className='w-[2.25rem] h-[2.25rem] mx-10' src={data.image} alt={data.name}/>
@@ -63,7 +63,7 @@ function TableComponent() {
                                             : "text-red  flex items-center display:block "
                                         }> 
                                         {renderIcon(data.price_change_percentage_24h_in_currency)}
-                                        {Number(data.price_change_percentage_24h_in_currency).toFixed(2)}
+                                        {Number(data.price_change_percentage_24h_in_currency).toFixed(2)} %
                                     </div>
                                 </td>
                                 <td> 
@@ -73,7 +73,7 @@ function TableComponent() {
                                             : "text-red  flex items-center display:block "
                                         }> 
                                         {renderIcon(data.price_change_percentage_7d_in_currency)}
-                                        {Number(data.price_change_percentage_7d_in_currency).toFixed(2)}
+                                        {Number(data.price_change_percentage_7d_in_currency).toFixed(2)} %
                                     </div>
                                 </td>
                                 <td> 
@@ -83,7 +83,7 @@ function TableComponent() {
                                             : "text-red  flex items-center display:block "
                                         }> 
                                         {renderIcon(data.price_change_percentage_30d_in_currency)}
-                                        {Number(data.price_change_percentage_30d_in_currency).toFixed(2)}
+                                        {Number(data.price_change_percentage_30d_in_currency).toFixed(2)} %
                                     </div>
                                 </td>
 

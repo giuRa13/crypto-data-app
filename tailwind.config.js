@@ -14,11 +14,15 @@ module.exports = {
       cyan: "#14ffec",
       red: "#d6436e",
       green: "#25da72",   
-      orange: "#e62e00",
-      orange2: "#ff3300",
+      orange: " #fc5b23",
+      orange2: "#e62e00",
       orange3: "#e65400",
       blu: "#0045e6",   
       blu2: "#001fe6",
+      grey: "#666",
+      darkgrey: "#2f2f2f",
+      darkgrey2: "#181818",
+      black2: "#080b0c",
     },
 
     fontSize: {

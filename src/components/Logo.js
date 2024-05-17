@@ -11,7 +11,7 @@ function Logo() {
             absolute top-[1.5rem] left-[1.5rem] font-bold
             text-xl text-orange flex items-center '>
             <img src={logo3Svg} alt='CryptoApp'/>
-            <span>CryptoApp</span>
+            <span>CoinScan</span>
         </Link>
 
   )
