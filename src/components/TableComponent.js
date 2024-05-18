@@ -5,7 +5,7 @@ import downSvg from '../assets/down.svg';
 
 function TableComponent() {
 
-  let { cryptoData } = useContext(CryptoContext);
+  let { cryptoData, currency } = useContext(CryptoContext);
 
   const renderIcon = (change) => {
     return change > 0 ?  <img src={upSvg} alt='UpIcon' className='w-[1.5] h-[1.5] '/> 
@@ -15,12 +15,12 @@ function TableComponent() {
   return (
     <div className='
         flex flex-col mt-12
-        border border-darkgrey rounded'
+        border border-grey rounded'
     >
         {
             cryptoData ? <table className='w-full table-auto'>      
             <thead className='capitalize text-base text-orange font-medium
-                border-b border-darkgrey'>
+                border-b border-grey'>
                 <tr>
                     <th className='py-1'>coin</th>
                     <th className='py-1'>rank</th>
@@ -28,7 +28,7 @@ function TableComponent() {
                     <th className='py-1'>price</th>
                     <th className='py-1'>24h</th>
                     <th className='py-1'>7d</th>
-                    <th className='py-1'>1w</th>
+                    <th className='py-1'>1m</th>
                     <th className='py-1'>total volume</th>
                     <th className='py-1'>market cap</th>
                 </tr>
@@ -38,7 +38,7 @@ function TableComponent() {
                     cryptoData.map(data => {
                         return(
                             <tr className='text-center text-base text-gray-100
-                            border-b border-darkgrey
+                            border-b border-grey
                             hover:bg-gray-200
                             last:border-b-0'
                             key={data.id}>
@@ -54,7 +54,13 @@ function TableComponent() {
                                 </td>
                                 <td className='py-4'>#{data.market_cap_rank}</td>
                                 <td className='py-4'>{data.name}</td>                              
-                                <td className='py-4'>{Number(data.current_price).toFixed(2)} USD</td>
+                                <td className='py-4'>{
+                                    new Intl.NumberFormat("en-IN",{
+                                        style: "currency",
+                                        currency: currency,
+                                        currencyDisplay: "symbol"
+                                    }).format(data.current_price)}
+                                </td>
                                 
                                 <td> 
                                     <div className={
@@ -87,8 +93,20 @@ function TableComponent() {
                                     </div>
                                 </td>
 
-                                <td className='py-4'>{data.total_volume.toLocaleString()} USD</td>
-                                <td className='py-4'>{data.market_cap.toLocaleString()} USD</td>
+                                <td className='py-4'>{
+                                    new Intl.NumberFormat("en-IN",{
+                                        style: "currency",
+                                        currency: currency,
+                                        currencyDisplay: "code"
+                                    }).format( data.total_volume)} 
+                                </td>
+                                <td className='py-4'>{
+                                     new Intl.NumberFormat("en-IN",{
+                                        style: "currency",
+                                        currency: currency,
+                                        currencyDisplay: "code"
+                                    }).format(data.market_cap)} 
+                                </td>
                             </tr>
                             )
                         }

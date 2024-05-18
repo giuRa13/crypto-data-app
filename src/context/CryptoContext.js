@@ -11,11 +11,13 @@ export const CryptoProvider = ({children}) => {
     const [searchData, setSearchData] = useState();
     const [coinSearch, setCoinSearch] = useState("");
 
+    const [currency, setCurrency] = useState("usd");
+
 
     const getCryptoData = async () => {
         try {
             const data = await fetch(
-                `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coinSearch}&order=market_cap_desc
+                `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coinSearch}&order=market_cap_desc
                  &per_page=50&page=1&sparkline=false&price_change_percentage=24h%2C7d%2C30d&precision=full`
             )
             .then(res => res.json())
@@ -48,7 +50,7 @@ export const CryptoProvider = ({children}) => {
 
     useLayoutEffect(() => {
         getCryptoData();
-    }, [coinSearch]);
+    }, [coinSearch, currency]);
     // first "coinSeacrh" is empty and get all coins,
     // when click on item "coinSearch" become that coin 
     // and when we change "coinSearch", it calls again func getCryptoData(whit the id)
@@ -59,7 +61,9 @@ export const CryptoProvider = ({children}) => {
             searchData, 
             getSearchResult, 
             setCoinSearch, 
-            setSearchData
+            setSearchData,
+            currency,
+            setCurrency,
             }
             }>
             {children}

@@ -40,7 +40,7 @@ code {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--darkgrey2);
+  background: var(--grey);
   border-radius: 3rem;
 }
 

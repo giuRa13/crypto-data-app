@@ -30,8 +30,8 @@ const SearchInput = ({handleSearch}) => {
 
   return(
     <>
-    <form className='w-80 relative flex tems-center ml-5' onSubmit={handleSubmit}>
-    <input type='text' name='search' className='w-[75%] rounded bg-darkgrey    
+    <form className='w-96 relative flex tems-center ml-5' onSubmit={handleSubmit}>
+    <input type='text' name='search' className='w-[75%] rounded bg-grey   
       required outline-0 border border-transparent 
       focus:border-orange
       placeholder:text-gray-100 pl-2
@@ -41,18 +41,18 @@ const SearchInput = ({handleSearch}) => {
       value={searchText}
       />
     <button type='submit' alt='search' 
-      className='cursor-pointer w-[25%]
+      className='cursor-pointer w-[25%] bg-orange
         border border-orange rounded
         flex justify-center items-center
-        hover:bg-gray-200'
+        hover:bg-gray-200 hover:color-orange'
     >
-      <img src={searchIcon} alt='search' className='justify-center color-gray-200' />
+      <img src={searchIcon} alt='search' className='justify-center ' />
     </button>
   </form>
 
   {
     searchText.length > 0 ?
-      <ul className='absolute top-10 left-5 w-80 h-96 rounded-lg
+      <ul className='absolute top-10 left-5 w-96 h-96 rounded-lg
         overflow-x-hidden py-2 bg-darkgrey2 bg-opacity-60 
         backdrop-blur-md' 
         >
