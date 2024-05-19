@@ -28,11 +28,16 @@ const SearchInput = ({handleSearch}) => {
     setSearchData();// this empty the all search(set an empty state)
   };
 
+  /*className='cursor-pointer w-[25%] bg-orange
+        border border-orange rounded
+        flex justify-center items-center
+        hover:w-[27%] hover:rounded-none'*/ 
+
   return(
     <>
     <form className='w-96 relative flex tems-center ml-5' onSubmit={handleSubmit}>
-    <input type='text' name='search' className='w-[75%] rounded bg-grey   
-      required outline-0 border border-transparent 
+    <input type='text' name='search' className='w-full rounded bg-grey py-1   
+      required outline-0 border border-orange 
       focus:border-orange
       placeholder:text-gray-100 pl-2
       overflow-y rounded'
@@ -40,13 +45,10 @@ const SearchInput = ({handleSearch}) => {
       onChange={handleInput}
       value={searchText}
       />
-    <button type='submit' alt='search' 
-      className='cursor-pointer w-[25%] bg-orange
-        border border-orange rounded
-        flex justify-center items-center
-        hover:bg-gray-200 hover:color-orange'
+      <button type='submit' alt='search' 
+       className="absolute right-1 cursor-pointer"
     >
-      <img src={searchIcon} alt='search' className='justify-center ' />
+      <img src={searchIcon} alt='search' className='w-full h-auto justify-center' />
     </button>
   </form>
 

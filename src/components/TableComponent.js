@@ -2,6 +2,11 @@ import React, { useContext } from 'react'
 import { CryptoContext } from '../context/CryptoContext';
 import upSvg from '../assets/up.svg';
 import downSvg from '../assets/down.svg';
+import Pagination from './Pagination';
+import gecko2 from '../assets/gecko2.jpg';
+import geckologo from '../assets/coingecko-logo.webp';
+import { Link } from 'react-router-dom';
+
 
 function TableComponent() {
 
@@ -13,6 +18,7 @@ function TableComponent() {
 }
 
   return (
+    <>
     <div className='
         flex flex-col mt-12
         border border-grey rounded'
@@ -49,17 +55,25 @@ function TableComponent() {
                                         <path /*fill=""*/ d="M9.6 15.65L12 13.8l2.4 1.85l-.9-3.05l2.25-1.6h-2.8L12 7.9l-.95 3.1h-2.8l2.25 1.6zm-1.91 2.696l1.614-5.33L5.115 10h5.216L12 4.462L13.67 10h5.215l-4.189 3.016l1.614 5.33L12 15.07zM12 11.775"/>
                                         </svg>
                                     </button>
-                                    <img className='w-[2.25rem] h-[2.25rem] mx-10' src={data.image} alt={data.name}/>
-                                    <span>{data.symbol}</span>
+                                    <Link to={`/${data.id}`} className='cursor-pointer'>                                      
+                                        <img className='w-[2.25rem] h-[2.25rem] mx-10' src={data.image} alt={data.name}/>
+                                    </Link>
+                                    <Link to={`/${data.id}`} className='cursor-pointer'>                                   
+                                        <span>{data.symbol}</span>
+                                    </Link>
                                 </td>
                                 <td className='py-4'>#{data.market_cap_rank}</td>
-                                <td className='py-4'>{data.name}</td>                              
+                                <td className='py-4'>
+                                    <Link to={`/${data.id}`} className='cursor-pointer'>
+                                        {data.name}
+                                    </Link>
+                                </td>                              
                                 <td className='py-4'>{
                                     new Intl.NumberFormat("en-IN",{
                                         style: "currency",
                                         currency: currency,
                                         currencyDisplay: "symbol"
-                                    }).format(data.current_price)}
+                                    }).format(Number(data.current_price).toFixed(3))}
                                 </td>
                                 
                                 <td> 
@@ -113,10 +127,20 @@ function TableComponent() {
                     )
                 }
             </tbody>
-        </table> : null
-        }
-
-    </div>
+        </table> : null}
+        </div>  
+        
+            <div className='flex items-center justify-between mt-10 capitalize'>
+                <div className='flex items-center'>
+                <span>Data provided by</span>
+                  <a href="http://www.coingecko.com"
+                    rel="noreferrer"
+                    target={"_blank"}
+                    > <img src={geckologo} alt='gecko' className='w-[8rem] h-[5-rem] ml-2'/> </a>  
+                </div>
+                <Pagination/>
+            </div>    
+        </>
   )
 }
 

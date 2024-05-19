@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Crypto from './pages/Crypto';
 import Trending from './pages/Trending';
 import Saved from './pages/Saved';
+import CoinDetails from './components/CoinDetails';
 
 
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {      
         path: "/",
         element: <Crypto/>,
+      },
+      {      
+        path: "/:coinId",
+        element: <CoinDetails/>,
       },
       {      
         path: "/trending",

@@ -54,3 +54,8 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--orange);
 }
+
+select:focus > option:checked { 
+  background: #fc5b23 !important;
+}
+
