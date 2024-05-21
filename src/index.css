@@ -59,3 +59,15 @@ select:focus > option:checked {
   background: #fc5b23 !important;
 }
 
+ a {
+  text-decoration: underline !important;
+}
+
+ a:hover {
+  color: var(--orange) !important;
+}
+
+.canvas-container {
+  height: 50vh;
+  width: 53vw;
+}

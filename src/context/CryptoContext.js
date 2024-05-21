@@ -36,7 +36,7 @@ export const CryptoProvider = ({children}) => {
     const getCoinData = async (coinId) => {
         try {
             const data = await fetch(
-                `https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`
+                `https://api.coingecko.com/api/v3/coins/${coinId}?localization=true&tickers=false&market_data=true&community_data=true&developer_data=true&sparkline=false`
             )
             .then(res => res.json())
             .then(json => json);
