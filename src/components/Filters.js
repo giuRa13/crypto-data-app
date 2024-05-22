@@ -2,7 +2,9 @@ import React, { useContext, useRef} from 'react'
 import Search from './Search'
 import { CryptoContext } from '../context/CryptoContext'
 import  downIcon  from '../assets/downIcon.svg'
+import pageR from '../assets/pagination-right.svg';
 import PerPage from './PerPage';
+
 
 
 
@@ -28,15 +30,15 @@ function Filters() {
 
   return (
     <div className='w-full h-14 border-2 
-    border-grey rounded-md
+    border-orange rounded-md p-4
     flex items-center justify-between relative'
     >
         <Search/>
 
         <PerPage/>
 
-        <div className='flex mr-7'>
-          <form className='relative items-center mr-8' onSubmit={handleCurrencySubmit}>
+        <div className='flex '>
+          <form className='relative flex items-center mr-8' onSubmit={handleCurrencySubmit}>
             <label htmlFor='currency'
               className='relative justify-center items-center mr-2 font-bold'>Currency:</label>
             <input type='text' name='currency' placeholder='USD'
@@ -44,15 +46,17 @@ function Filters() {
               leading-4 bg-grey py-1'
               ref={currencyRef}/>
             <button type='submit'
-              className='text-darkgrey2 font-bold p-2 rounded bg-orange ml-1 cursor-pointer border-2 border-orange leading-4
+              className='rounded ml-1 cursor-pointer
               hover:text-grey'>
-            Change</button>      
+                 <img className='w-[70%] h-auto hover:bg-gray-200' src={pageR} alt='right'/>
+
+            </button>      
           </form>
 
           <label className='relative flex justify-center items-center'>
             <span className='font-bold mr-2'>Sort by:  </span>
             <select name='sortby' className='rounded bg-grey text-base border border-orange
-              pl-2 pr-10 py-1 leading-4 capitalize  focus:outline-0'
+              pl-2  py-1 leading-4 capitalize  focus:outline-0'
               onClick={handleSort}
               >
               <option value="market_cap_desc">market cap desc</option> 

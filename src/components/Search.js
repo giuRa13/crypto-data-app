@@ -35,7 +35,7 @@ const SearchInput = ({handleSearch}) => {
 
   return(
     <>
-    <form className='w-96 relative flex tems-center ml-5' onSubmit={handleSubmit}>
+    <form className='w-96 relative flex tems-center' onSubmit={handleSubmit}>
     <input type='text' name='search' className='w-full rounded bg-grey py-1   
       required outline-0 border border-orange 
       focus:border-orange

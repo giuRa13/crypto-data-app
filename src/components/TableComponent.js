@@ -25,18 +25,18 @@ function TableComponent() {
     >
         {
             cryptoData ? <table className='w-full table-auto'>      
-            <thead className='capitalize text-base text-orange font-medium
+            <thead className='capitalize text-darkgrey2 text-base font-bold bg-orange 
                 border-b border-grey'>
                 <tr>
-                    <th className='py-1'>coin</th>
-                    <th className='py-1'>rank</th>
-                    <th className='py-1'>name</th>
-                    <th className='py-1'>price</th>
-                    <th className='py-1'>24h</th>
-                    <th className='py-1'>7d</th>
-                    <th className='py-1'>1m</th>
-                    <th className='py-1'>total volume</th>
-                    <th className='py-1'>market cap</th>
+                    <th className='py-3' >coin</th>
+                    <th className='py-3' >rank</th>
+                    <th className='py-3' >name</th>
+                    <th className='py-3' >price</th>
+                    <th className='py-3' >24h</th>
+                    <th className='py-3' >7d</th>
+                    <th className='py-3' >1m</th>
+                    <th className='py-3' >total volume</th>
+                    <th className='py-3' >market cap</th>
                 </tr>
             </thead>
             <tbody>

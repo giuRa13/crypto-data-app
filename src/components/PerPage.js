@@ -1,5 +1,6 @@
 import { useContext, useRef } from "react";
 import { CryptoContext } from "../context/CryptoContext";
+import pageR from '../assets/pagination-right.svg';
 
 const  PerPage = () => {
 
@@ -15,7 +16,7 @@ const  PerPage = () => {
     };
 
     return(
-    <form className='relative items-center mr-12' onSubmit={handleSubmit}> 
+    <form className='flex relative items-center mr-12' onSubmit={handleSubmit}> 
 
       <label htmlFor='perpage'
         className='relative justify-center items-center mr-2 font-bold'>
@@ -32,9 +33,9 @@ const  PerPage = () => {
         ref={inputRef}/>
 
       <button type='submit'
-        className='text-darkgrey2 font-bold p-2 rounded bg-orange ml-1 cursor-pointer border-2 border-orange leading-4
-        hover:text-grey'>
-        Change
+        className='rounded ml-1 cursor-pointer hover:text-grey'>
+        <img className='w-[70%] h-auto hover:bg-gray-200' src={pageR} alt='right'/>
+
       </button>      
 
     </form>

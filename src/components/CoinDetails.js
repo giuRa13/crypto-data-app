@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Outlet, useParams } from 'react-router-dom'
 import { CryptoContext } from '../context/CryptoContext';
 import Chart from './Chart';
 import geckologo from '../assets/coingecko-logo.webp';
@@ -117,8 +117,9 @@ function CoinDetails() {
                                 {new Intl.NumberFormat("en-IN",{
                                     style: "currency",
                                     currency: currency,
-                                    currencyDisplay: "symbol"
-                                }).format(Number(data.market_data.current_price[currency]).toFixed(3))}</h2>
+                                    currencyDisplay: "symbol",
+                                    minimumFractionDigits: 5,
+                                }).format(Number(data.market_data.current_price[currency]))}</h2>
                         </div>
                     </div>                           
                         
@@ -155,12 +156,12 @@ function CoinDetails() {
                                     style: "currency",
                                     currency: currency,
                                     currencyDisplay: "symbol",
-                                    //minimumFractionDigits: 0, 
+                                    minimumFractionDigits: 5, 
                                 }).format(data.market_data.ath[currency])}
                             </h2>                           
                         </div>
                         <div className='flex flex-col '>
-                            <span className='text-grey text-md'>from ath:</span>
+                            <span className='text-grey text-md'>from ATH :</span>
                             <h2 className={`text-md font-bold
                             ${data.market_data.ath_change_percentage.usd > 0
                                 ? 'text-green' : 'text-red'}
@@ -168,7 +169,30 @@ function CoinDetails() {
                                 {(data.market_data.ath_change_percentage.usd).toFixed(2)} %            
                             </h2>
                         </div>
-                    </div>           
+                    </div>   
+
+                    <div className="flex w-full mt-4 justify-between">
+                        <div className='flex flex-col '>
+                            <span className='text-grey text-md'>ATL</span>
+                            <h2 className='text-md font-bold'>
+                                {new Intl.NumberFormat("en-IN",{
+                                    style: "currency",
+                                    currency: currency,
+                                    currencyDisplay: "symbol",
+                                    minimumFractionDigits: 4, 
+                                }).format(data.market_data.atl[currency])}
+                            </h2>                           
+                        </div>
+                        <div className='flex flex-col '>
+                            <span className='text-grey text-md'>from ATL :</span>
+                            <h2 className={`text-md font-bold
+                            ${data.market_data.atl_change_percentage.usd > 0
+                                ? 'text-green' : 'text-red'}
+                            `}>
+                                {(data.market_data.atl_change_percentage.usd).toFixed(2)} %            
+                            </h2>
+                        </div>
+                    </div>                   
 
                     <div className="flex w-full mt-4 justify-between">
                         <div className="flex flex-col">
@@ -215,7 +239,7 @@ function CoinDetails() {
                         </div>
                         <div className="flex flex-col">
                             <span className="text-md  text-grey">
-                                high 24H
+                                High 24H
                             </span>
                             <h2 className="text-md font-bold">
                                 {new Intl.NumberFormat("en-IN", {
@@ -369,7 +393,6 @@ function CoinDetails() {
     : null
 
     }
-
     </div>
   )
 }
