@@ -4,11 +4,13 @@ import Logo from '../components/Logo'
 import Navigation from '../components/Navigation'
 import { CryptoProvider } from '../context/CryptoContext'
 import { TrendingContext, TrendingProvider } from '../context/TrendingContext'
+import { StorageProvider } from '../context/StorageContext'
 
 function Home() {
   return (
     <CryptoProvider>
     <TrendingProvider>
+    <StorageProvider>
     <main className='w-full h-full 
         flex flex-col
         first-letter: content-center
@@ -24,6 +26,7 @@ function Home() {
 
         <Outlet/> 
     </main>
+    </StorageProvider>
     </TrendingProvider>
     </CryptoProvider>
 

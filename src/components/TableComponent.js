@@ -6,6 +6,36 @@ import Pagination from './Pagination';
 import gecko2 from '../assets/gecko2.jpg';
 import geckologo from '../assets/coingecko-logo.webp';
 import { Link } from 'react-router-dom';
+import { StorageContext } from '../context/StorageContext';
+
+const SaveBtn = ({data}) => {
+
+    let { saveCoin, allCoins, removeCoin } = useContext(StorageContext);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        saveCoin(data.id);
+
+        if(allCoins.includes(data.id)){
+            removeCoin(data.id)
+        }
+        else{
+            saveCoin(data.id)
+        }
+    };
+
+    return(
+        <button onClick={(e)=>handleClick(e)} 
+        className='outline-0 border-0 bg-none cursor-pointer'>
+             <svg className={`w-[3rem] ml-2.5 
+             ${allCoins.includes(data.id)? "fill-orange" : "fill-gray-100"}
+             hover:w-[3.5rem] hover:ml-0.5`}
+                xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                <path  d="M9.6 15.65L12 13.8l2.4 1.85l-.9-3.05l2.25-1.6h-2.8L12 7.9l-.95 3.1h-2.8l2.25 1.6zm-1.91 2.696l1.614-5.33L5.115 10h5.216L12 4.462L13.67 10h5.215l-4.189 3.016l1.614 5.33L12 15.07zM12 11.775"/>
+            </svg>
+        </button>
+    )
+};
 
 
 function TableComponent() {
@@ -49,12 +79,9 @@ function TableComponent() {
                             last:border-b-0'
                             key={data.id}>
                                 <td className='py-4 flex items-center uppercase'>
-                                    <button className='outline-0 border-0 bg-none cursor-pointer'>
-                                        <svg className='w-[3rem] ml-2.5 fill-gray-100 hover:fill-orange'
-                                        xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
-                                        <path /*fill=""*/ d="M9.6 15.65L12 13.8l2.4 1.85l-.9-3.05l2.25-1.6h-2.8L12 7.9l-.95 3.1h-2.8l2.25 1.6zm-1.91 2.696l1.614-5.33L5.115 10h5.216L12 4.462L13.67 10h5.215l-4.189 3.016l1.614 5.33L12 15.07zM12 11.775"/>
-                                        </svg>
-                                    </button>
+
+                                    <SaveBtn data={data}/>
+
                                     <Link to={`/${data.id}`} className='cursor-pointer'>                                      
                                         <img className='w-[2.25rem] h-[2.25rem] mx-10' src={data.image} alt={data.name}/>
                                     </Link>
