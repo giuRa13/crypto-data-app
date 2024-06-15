@@ -17,7 +17,7 @@ export const TrendingProvider = ({children}) => {
             )
             .then(res => res.json())
             .then(json => json);
-            console.log(data);
+            //console.log(data);
             setTrendData(data.coins);
         } 
         catch (error) {       
@@ -38,7 +38,7 @@ export const TrendingProvider = ({children}) => {
 
     return(
         <TrendingContext.Provider value={{
-            trendData,
+            trendData, 
             resetTrendingResult,
             }}>
             {children}

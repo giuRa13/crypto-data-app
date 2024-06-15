@@ -3,6 +3,7 @@ import { Outlet, useParams } from 'react-router-dom'
 import { CryptoContext } from '../context/CryptoContext';
 import Chart from './Chart';
 import geckologo from '../assets/coingecko-logo.webp';
+import Loading from './Loading';
 //import redditSvg from '../assets/reddit.svg';
 //import facebookSvg from '../assets/facebook.svg';
 //import twitterSvg from '../assets/twitter.svg';
@@ -70,18 +71,18 @@ function CoinDetails() {
     }, [coinId])
 
   return (
-    <div className='fixed top-0 bottom-0 w-[80%] h-full flex flex-col mt-6 mb-24 relative '>
+    <div className='fixed top-0 bottom-0 w-[80%] h-full flex flex-col mt-6 mb-24 relative respons'>
     {
     data ?
     <div>
         <div className='flex flex-col mt-12
-        border border-grey rounded-md w-full h-auto relative
-        items-center justify-center rounded-md'>
+        border border-grey rounded-lg w-full h-auto relative
+        items-center justify-center  '>
 
-        <div className='flex items-center justify-between h-full w-full bg-darkgrey2'> 
+            <div className='flex items-center justify-between h-full w-full bg-darkgrey2 class4'> 
 
-                <div className='flex flex-col w-[30%] h-full p-2 bg-darkgrey2'>
-                    <div className='flex w-full items-center ml-2'>
+                <div className='flex flex-col w-[30%] h-full p-2 bg-darkgrey2 classleft'>
+                    <div className='flex w-full items-center ml-2 class1'>
                         <img className='w-[4rem] h-[4rem] mx-2 my-2' 
                         src={data.image.large} alt={data.id}/>
                         <h1 className='text-xxl capitalize font-bold'>
@@ -94,12 +95,12 @@ function CoinDetails() {
                     </div>
 
                         
-                    <div className='flex w-full mt-6'>
+                    <div className='flex w-full mt-6 ml-4'>
                         <div className='flex flex-col w-full'>
                             <div className='flex justify-between'>
                                 <span className='text-grey text-md'>Price</span>
                                 <div className={`
-                                    px-1 ml-2 flex items-center rounded bg-opacity-25
+                                    px-1 ml-2 flex items-center rounded-md bg-opacity-25 mr-2
                                     ${data.market_data.price_change_percentage_24h > 0 
                                     ? 'bg-green text-green' : 'bg-red text-red'} 
                                 `}>
@@ -123,7 +124,7 @@ function CoinDetails() {
                         </div>
                     </div>                           
                         
-                    <div className='flex flex-col w-full mt-4 justify-between'>
+                    <div className='flex flex-col w-full mt-4 ml-4 justify-between'>
                         <div className='flex flex-col'>
                             <span className='text-grey text-md'>Market Cap</span>
                             <h2 className='text-md font-bold'>
@@ -148,8 +149,8 @@ function CoinDetails() {
                         </div>
                     </div>
 
-                    <div className="flex w-full mt-4 justify-between">
-                        <div className='flex flex-col '>
+                    <div className='flex flex-col class5'>
+                        <div className='flex flex-col mt-4 ml-4'>
                             <span className='text-grey text-md'>ATH</span>
                             <h2 className='text-md font-bold'>
                                 {new Intl.NumberFormat("en-IN",{
@@ -160,19 +161,18 @@ function CoinDetails() {
                                 }).format(data.market_data.ath[currency])}
                             </h2>                           
                         </div>
-                        <div className='flex flex-col '>
+                        <div className='flex flex-col mt-4 ml-4'>
                             <span className='text-grey text-md'>from ATH :</span>
                             <h2 className={`text-md font-bold
                             ${data.market_data.ath_change_percentage.usd > 0
-                                ? 'text-green' : 'text-red'}
+                            ? 'text-green' : 'text-red'}
                             `}>
                                 {(data.market_data.ath_change_percentage.usd).toFixed(2)} %            
                             </h2>
-                        </div>
-                    </div>   
-
-                    <div className="flex w-full mt-4 justify-between">
-                        <div className='flex flex-col '>
+                        </div>                    
+                   </div>
+                   <div className='flex flex-col class5'>
+                        <div className='flex flex-col mt-4 ml-4'>
                             <span className='text-grey text-md'>ATL</span>
                             <h2 className='text-md font-bold'>
                                 {new Intl.NumberFormat("en-IN",{
@@ -183,19 +183,19 @@ function CoinDetails() {
                                 }).format(data.market_data.atl[currency])}
                             </h2>                           
                         </div>
-                        <div className='flex flex-col '>
+                        <div className='flex flex-col mt-4 ml-4'>
                             <span className='text-grey text-md'>from ATL :</span>
                             <h2 className={`text-md font-bold
                             ${data.market_data.atl_change_percentage.usd > 0
-                                ? 'text-green' : 'text-red'}
+                            ? 'text-green' : 'text-red'}
                             `}>
                                 {(data.market_data.atl_change_percentage.usd).toFixed(2)} %            
                             </h2>
                         </div>
-                    </div>                   
+                    </div>
 
-                    <div className="flex w-full mt-4 justify-between">
-                        <div className="flex flex-col">
+                    <div className='flex flex-col class5'>                                 
+                        <div className="flex flex-col mt-4 ml-4">
                             <span className="text-md  text-grey">
                                 Max Supply
                             </span>
@@ -207,8 +207,8 @@ function CoinDetails() {
                                 minimumFractionDigits: 0,
                                 }).format(data.market_data.max_supply)}
                             </h2>
-                        </div>
-                        <div className="flex flex-col">
+                        </div>               
+                        <div className="flex flex-col mt-4 ml-4">                      
                             <span className="text-md  text-grey">
                                 Circulating Supply
                             </span>
@@ -219,11 +219,11 @@ function CoinDetails() {
                                 currencyDisplay: "symbol",
                                 minimumFractionDigits: 0,
                                 }).format(data.market_data.circulating_supply)}
-                            </h2>
-                        </div>
-                    </div>     
+                            </h2>                      
+                        </div>     
+                    </div>
                     
-                    <div className="flex w-full mt-10  justify-between">
+                    <div className="flex w-full mt-4 justify-between">
                         <div className="flex flex-col">
                             <span className="text-md  text-grey">
                                 Low 24H
@@ -252,15 +252,41 @@ function CoinDetails() {
                         </div>
                     </div>
 
-                    <div className="flex w-full mt-2 justify-between">
+                    <div className="flex px-2 mt-2 mb-4 justify-between">
                     <HighLowIndicator
                         currentPrice={data.market_data.current_price[currency]}
                         high={data.market_data.high_24h[currency]}
                         low={data.market_data.low_24h[currency]}
                     />
-                    </div> 
-                    
-                        <div className='flex flex-row justify-center items-center mt-10'>
+                    </div>                    
+                </div>
+
+
+                
+                <div className='flex  flex-col items-center justify-between  w-[70%] h-full p-1 bg-darkgrey2 classright'>
+                    <div className='flex mt-2 bg-darkgrey2 border border-grey rounded-lg classchart'>
+                        <Chart id={data.id} />
+                    </div>
+
+                    <div className='flex justify-between w-full class2'>
+                        <div className='flex flex-col mt-6 justify-start'>
+                            <h3 className="text-md font-bold py-1"><span className="font-normal text-grey" >Market Cap Rank : </span>{data.market_cap_rank}</h3> 
+                            <h3 className="text-md font-bold py-1"><span className="font-normal  text-grey">Twitter Followers : </span> 
+                            {new Intl.NumberFormat("en-IN", {
+                                    //style: "currency",
+                                    //currency: currency,
+                                    //currencyDisplay: "symbol",
+                                    minimumFractionDigits: 0,
+                                    }).format(data.community_data.twitter_followers)}</h3> 
+                            <h3 className=" text-md  py-1"><span className="font-normal  text-grey">Whitepaper : </span>
+                            {
+                                    data?.links?.whitepaper &&
+                                    <a target={"_blank"} rel='noreferrer' className='text-sm bg-darkgrey py-1 my-1 px-1.5 rounded-md' href={data?.links?.whitepaper}>{data?.links?.whitepaper.substring(0,30)}</a>
+                            }
+                            </h3>                        
+                        </div>
+                        
+                    <div className='flex flex-row items-center mr-6 class3'>
                             <span className="text-md font-bold">Sentiment: </span>
                             <div className='flex justify-between'>
                                 <div className={`
@@ -286,8 +312,13 @@ function CoinDetails() {
                                 </div>
                             </div>
                         </div>
-                    
-                    <div className='flex w-full mt-10 justify-center items-center'>
+                    </div>
+
+
+
+                    <div className='flex m-6 w-full justify-between mt-12 class2'>
+
+                    <div className='flex flex-col  mr-auto justify-start items-center'>
                         <div className='flex flex-col'>
                             <a target={"_blank"} rel='noreferrer' className='text-sm bg-darkgrey py-1 my-1 px-1.5 rounded-md' href={data?.links?.homepage[0]}>{data?.links?.homepage[0].substring(0,30)}</a>
                             {
@@ -301,33 +332,9 @@ function CoinDetails() {
                             }
                         </div>
                     </div>
-                </div>
-
-                
-                <div className='flex  flex-col items-center justify-between  w-[70%] h-full p-1 bg-darkgrey2'>
-                    <div className='flex mt-2 bg-darkgrey2 border border-grey rounded-md'>
-                        <Chart id={data.id} />
-                    </div>
-
-                    <div className='flex flex-col mt-6 ml-6 w-full h-full'>
-                        <h3 className="text-md font-bold py-1"><span className="font-normal text-grey" >Market Cap Rank : </span>{data.market_cap_rank}</h3> 
-                        <h3 className="text-md font-bold py-1"><span className="font-normal  text-grey">Twitter Followers : </span> 
-                        {new Intl.NumberFormat("en-IN", {
-                                //style: "currency",
-                                //currency: currency,
-                                //currencyDisplay: "symbol",
-                                minimumFractionDigits: 0,
-                                }).format(data.community_data.twitter_followers)}</h3> 
-                        <h3 className=" text-md  py-1"><span className="font-normal  text-grey">Whitepaper : </span>
-                        {
-                                data?.links?.whitepaper &&
-                                <a target={"_blank"} rel='noreferrer' className='text-sm bg-darkgrey py-1 my-1 px-1.5 rounded-md' href={data?.links?.whitepaper}>{data?.links?.whitepaper.substring(0,30)}</a>
-                        }
-                        </h3>                        
-                    </div>
-
-                    <div className='flex flex-col  mb-14 mt-14 ml-auto'>
-                    <div className='flex flex-row mr-6'>
+                        
+                    <div className='flex flex-col mb-0 mt-10 items-center ml-auto'>
+                    <div className='flex flex-row mr-6 '>
                         {
                             data?.links?.repos_url.github[0] &&   
                             <a className='px-2' href={data?.links?.repos_url.github[0]}  target={"_blank"} rel='noreferrer'>
@@ -366,16 +373,20 @@ function CoinDetails() {
 
                     </div>
                     </div>
+                    </div>
+                    
                 </div>
 
-        </div>
+            </div>
                
         </div>  
 
 
+
+
         <div className='flex flex-col mt-4 py-4 px-4
         border border-grey rounded-md w-full h-auto relative
-        items-center justify-center rounded-md bg-darkgrey2'>
+        items-center justify-center bg-darkgrey2'>
             <CoinInfo 
                 heading={data.name}
                 desc={data.description.en}/>                
@@ -390,7 +401,15 @@ function CoinDetails() {
         </div>
     </div>
 
-    : null
+    : 
+    <Loading/>
+    /*<div className='w-full h-full flex justify-center items-center mt-20'>
+            <div className='w-10 h-10 border-4 border-orange rounded-full
+              border-b-gray-200 animate-spin'
+              role='status'>
+            </div>
+            <span className='ml-2'>Searching...</span>
+          </div>*/
 
     }
     </div>

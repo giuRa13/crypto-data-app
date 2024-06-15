@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 import searchIcon from '../assets/search-icon.svg';
 import { CryptoContext } from '../context/CryptoContext';
 import debounce from 'lodash.debounce';
+import Loading from './Loading';
 
 const SearchInput = ({handleSearch}) => {
 
@@ -35,7 +36,7 @@ const SearchInput = ({handleSearch}) => {
 
   return(
     <>
-    <form className='w-96 relative flex tems-center' onSubmit={handleSubmit}>
+    <form className='w-96 relative flex items-center pons2' onSubmit={handleSubmit}>
     <input type='text' name='search' className='w-full rounded bg-grey py-1   
       required outline-0 border border-orange 
       focus:border-orange
@@ -54,7 +55,7 @@ const SearchInput = ({handleSearch}) => {
 
   {
     searchText.length > 0 ?
-      <ul className='absolute top-10 left-5 w-96 h-96 rounded-lg
+      <ul className='index absolute top-10 left-5 w-96 h-96 rounded-lg
         overflow-x-hidden py-2 bg-darkgrey2 bg-opacity-60 
         backdrop-blur-md' 
         >
@@ -70,13 +71,14 @@ const SearchInput = ({handleSearch}) => {
             </li>
           }) 
           : 
-          <div className='w-full h-full flex justify-center items-center'>
+          <Loading/>
+          /*<div className='w-full h-full flex justify-center items-center'>
             <div className='w-10 h-10 border-4 border-orange rounded-full
               border-b-gray-200 animate-spin'
               role='status'>
             </div>
             <span className='ml-2'>Searching...</span>
-          </div>
+          </div>*/
         }
 
       </ul>

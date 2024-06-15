@@ -7,6 +7,7 @@ export const CryptoContext = createContext({});
 // create the Provider component
 export const CryptoProvider = ({children}) => {
 
+
     const [cryptoData, setCryptoData] = useState();
     const [searchData, setSearchData] = useState();
     const [coinSearch, setCoinSearch] = useState("");
@@ -19,13 +20,15 @@ export const CryptoProvider = ({children}) => {
 
 
     const getCryptoData = async () => {
+        setCryptoData(); // just for see loading on change page
+
         try {
             const data = await fetch(
                 `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coinSearch}&order=${sortBy}&per_page=${perPage}&page=${page}&sparkline=false&price_change_percentage=24h%2C7d%2C30d&precision=full`
             )
             .then(res => res.json())
             .then(json => json);
-            console.log(data);
+            //console.log(data);
             setCryptoData(data);
         } 
         catch (error) {       
@@ -34,13 +37,15 @@ export const CryptoProvider = ({children}) => {
     };
 
     const getCoinData = async (coinId) => {
+        //setCryptoData(); // just for see loading on change page
+
         try {
             const data = await fetch(
                 `https://api.coingecko.com/api/v3/coins/${coinId}?localization=true&tickers=false&market_data=true&community_data=true&developer_data=true&sparkline=false`
             )
             .then(res => res.json())
             .then(json => json);
-            console.log(data);
+            //console.log(data);
             setCoinData(data);
         } 
         catch (error) {       
@@ -55,8 +60,8 @@ export const CryptoProvider = ({children}) => {
             )
             .then(res => res.json())
             .then(json => json);
-            console.log(data);
-            console.log(data.coins);
+            //console.log(data);
+            //console.log(data.coins);
             setSearchData(data.coins);
         } 
         catch (error) {       

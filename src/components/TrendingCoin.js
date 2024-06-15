@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { CryptoContext } from '../context/CryptoContext';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+
 
 function TrendingCoin({data}) { //data.item.id
 
@@ -13,22 +14,22 @@ function TrendingCoin({data}) { //data.item.id
 
   return (
     <div onClick={()=>getDetails(data.id)} 
-    className='w-[40%] bg-darkgrey2 mb-12 last:mb-0
-    rounded-md p-4 relative cursor-pointer
-    hover:bg-gray-100 hover:bg-opacity-40'>
-    {   data ?
+    className="w-[40%] bg-gray-200 mb-12
+    last:mb-0 rounded-lg p-4 relative cursor-pointer
+    hover:bg-gray-100 hover:bg-opacity-40 responsi5">
+    {   data  ? (
         <>
 
-        <h3 className='flex flex-row items-center justify-start mb-4'>
+        <h3 className='flex flex-row items-center justify-start mb-4 responsi'>
             <img className='w-[1.5rem] h-[1.5rem] mx-2 my-2 rounded-full' src={data.large} alt={data.id}/>
-            <span className=' text-xl font-bold'>{data.name}</span>    
+            <span className=' text-lg font-bold'>{data.name}</span>    
             <span className='uppercase bg-orange text-orange rounded
             py-1 px-2.5 ml-2 bg-opacity-25'>
               {data.symbol}
             </span>
 
             <div className={`
-            px-2 py-2 flex items-center rounded-md bg-opacity-25 ml-auto
+            px-2 py-2 flex items-center rounded-md bg-opacity-25 ml-auto responsi2
             ${data.data.price_change_percentage_24h[currency] > 0 
             ? 'bg-green text-green' : 'bg-red text-red'} 
             `}>
@@ -73,12 +74,20 @@ function TrendingCoin({data}) { //data.item.id
 
         <img className='w-[25%] h-auto rounded-full
         absolute bottom-2 right-1 -translate-y-0' 
-        src={data.large} alt={data.id}/>
+        src={data.large} alt={data.name}/>
 
         </>
-        :
-        null
+    ) : (
+        <div className='w-full h-full flex justify-center items-center p-4 min-h-[50vh]'>
+          <div className='w-10 h-10 border-4 border-gray-200 rounded-full
+        border-b-orange animate-spin'
+          role='status'>
+          </div>
+          <span className='ml-2'>Loading...</span>
+        </div>
+    )
     }
+
     </div>
   )
 }

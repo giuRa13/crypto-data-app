@@ -3,10 +3,10 @@ import { Outlet } from 'react-router-dom' //for rendering
 import Logo from '../components/Logo'
 import Navigation from '../components/Navigation'
 import { CryptoProvider } from '../context/CryptoContext'
-import { TrendingContext, TrendingProvider } from '../context/TrendingContext'
+import { TrendingProvider } from '../context/TrendingContext'
 import { StorageProvider } from '../context/StorageContext'
 
-function Home() {
+const Home = () => {
   return (
     <CryptoProvider>
     <TrendingProvider>

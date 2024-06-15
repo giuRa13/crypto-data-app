@@ -16,7 +16,7 @@ const  PerPage = () => {
     };
 
     return(
-    <form className='flex relative items-center mr-12' onSubmit={handleSubmit}> 
+    <form className='flex relative items-center' onSubmit={handleSubmit}> 
 
       <label htmlFor='perpage'
         className='relative justify-center items-center mr-2 font-bold'>

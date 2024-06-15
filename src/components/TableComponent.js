@@ -3,10 +3,10 @@ import { CryptoContext } from '../context/CryptoContext';
 import upSvg from '../assets/up.svg';
 import downSvg from '../assets/down.svg';
 import Pagination from './Pagination';
-import gecko2 from '../assets/gecko2.jpg';
 import geckologo from '../assets/coingecko-logo.webp';
 import { Link } from 'react-router-dom';
 import { StorageContext } from '../context/StorageContext';
+import Loading from './Loading';
 
 const SaveBtn = ({data}) => {
 
@@ -51,22 +51,22 @@ function TableComponent() {
     <>
     <div className='
         flex flex-col mt-12
-        border border-grey rounded'
+        border border-orange rounded-lg res3'
     >
         {
-            cryptoData ? <table className='w-full table-auto'>      
+            cryptoData ? 
+        <table className='w-full table-auto pons3'>      
             <thead className='capitalize text-darkgrey2 text-base font-bold bg-orange 
                 border-b border-grey'>
                 <tr>
-                    <th className='py-3' >coin</th>
-                    <th className='py-3' >rank</th>
-                    <th className='py-3' >name</th>
-                    <th className='py-3' >price</th>
-                    <th className='py-3' >24h</th>
-                    <th className='py-3' >7d</th>
-                    <th className='py-3' >1m</th>
-                    <th className='py-3' >total volume</th>
-                    <th className='py-3' >market cap</th>
+                    <th className='py-3 w-[25%]' >coin</th>
+                    <th className='py-3 w-[5%] res2' >rank</th>
+                    <th className='py-3 w-[10%]' >price</th>
+                    <th className='py-3 w-[10%] res5' >24H</th>
+                    <th className='py-3 w-[10%] res25' >7D</th>
+                    <th className='py-3 w-[10%] res45' >1M</th>
+                    <th className='py-3 w-[15%] res' >total volume</th>
+                    <th className='py-3 w-[15%] res' >market cap</th>
                 </tr>
             </thead>
             <tbody>
@@ -77,25 +77,21 @@ function TableComponent() {
                             border-b border-grey
                             hover:bg-gray-200
                             last:border-b-0'
-                            key={data.id}>
-                                <td className='py-4 flex items-center uppercase'>
+                            key={data.id}>                              
+                                <td className='py-4 flex justify-start items-center'>
 
                                     <SaveBtn data={data}/>
 
-                                    <Link to={`/${data.id}`} className='cursor-pointer'>                                      
-                                        <img className='w-[2.25rem] h-[2.25rem] mx-10' src={data.image} alt={data.name}/>
+                                    <Link to={`/${data.id}`} className='ml-6 cursor-pointer'>                                      
+                                        <img className='w-[2.25rem] h-[2.25rem]' src={data.image} alt={data.name}/>
                                     </Link>
-                                    <Link to={`/${data.id}`} className='cursor-pointer'>                                   
-                                        <span>{data.symbol}</span>
+                                    <Link to={`/${data.id}`} className='ml-2 cursor-pointer'>
+                                        {data.name}                                                                 
+                                        <span className='ml-2 cursor-pointer uppercase ress'>({data.symbol})</span>
                                     </Link>
                                 </td>
-                                <td className='py-4'>#{data.market_cap_rank}</td>
-                                <td className='py-4'>
-                                    <Link to={`/${data.id}`} className='cursor-pointer'>
-                                        {data.name}
-                                    </Link>
-                                </td>                              
-                                <td className='py-4'>{
+                                <td className='py-4 res2'>#{data.market_cap_rank}</td>                             
+                                <td className='py-4 res5'>{
                                     new Intl.NumberFormat("en-IN",{
                                         style: "currency",
                                         currency: currency,
@@ -116,8 +112,8 @@ function TableComponent() {
                                 <td> 
                                     <div className={
                                             data.price_change_percentage_7d_in_currency > 0 ? 
-                                            "text-green flex justify-center items-center " 
-                                            : "text-red  flex items-center display:block "
+                                            "text-green flex justify-center items-center res2" 
+                                            : "text-red  flex items-center display:block res2"
                                         }> 
                                         {renderIcon(data.price_change_percentage_7d_in_currency)}
                                         {Number(data.price_change_percentage_7d_in_currency).toFixed(2)} %
@@ -126,26 +122,26 @@ function TableComponent() {
                                 <td> 
                                     <div className={
                                             data.price_change_percentage_30d_in_currency > 0 ? 
-                                            "text-green flex justify-center items-center " 
-                                            : "text-red  flex items-center display:block "
+                                            "text-green flex justify-center items-center res4" 
+                                            : "text-red  flex items-center display:block res4"
                                         }> 
                                         {renderIcon(data.price_change_percentage_30d_in_currency)}
                                         {Number(data.price_change_percentage_30d_in_currency).toFixed(2)} %
                                     </div>
                                 </td>
 
-                                <td className='py-4'>{
+                                <td className='py-4 res'>{
                                     new Intl.NumberFormat("en-IN",{
                                         style: "currency",
                                         currency: currency,
-                                        currencyDisplay: "code"
+                                        currencyDisplay: "symbol"
                                     }).format( data.total_volume)} 
                                 </td>
-                                <td className='py-4'>{
+                                <td className='py-4 res'>{
                                      new Intl.NumberFormat("en-IN",{
                                         style: "currency",
                                         currency: currency,
-                                        currencyDisplay: "code"
+                                        currencyDisplay: "symbol"
                                     }).format(data.market_cap)} 
                                 </td>
                             </tr>
@@ -154,7 +150,17 @@ function TableComponent() {
                     )
                 }
             </tbody>
-        </table> : null}
+        </table> : 
+
+        <div className='w-full h-full flex justify-center items-center p-4 min-h-[50vh]'>
+            <div className='w-10 h-10 border-4 border-gray-200 rounded-full
+          border-b-orange animate-spin'
+            role='status'>
+            </div>
+            <span className='ml-2'>Loading...</span>
+          </div>
+        }
+
         </div>  
         
             <div className='flex items-center justify-between mt-10 capitalize'>

@@ -29,16 +29,16 @@ function Filters() {
 
 
   return (
-    <div className='w-full h-14 border-2 
-    border-orange rounded-md p-4
-    flex items-center justify-between relative'
+    <div className='w-full h-20 border-2 
+    border-orange rounded-lg p-4
+    flex items-center justify-between relative pons'
     >
-        <Search/>
+        <Search />
 
-        <PerPage/>
+        <PerPage className='pons3'/>
 
         <div className='flex '>
-          <form className='relative flex items-center mr-8' onSubmit={handleCurrencySubmit}>
+          <form className='relative flex items-center mr-12' onSubmit={handleCurrencySubmit}>
             <label htmlFor='currency'
               className='relative justify-center items-center mr-2 font-bold'>Currency:</label>
             <input type='text' name='currency' placeholder='USD'
