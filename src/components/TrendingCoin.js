@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { CryptoContext } from '../context/CryptoContext';
-import { Outlet, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 
 function TrendingCoin({data}) { //data.item.id

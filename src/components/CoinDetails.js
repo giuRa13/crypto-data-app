@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
-import { Outlet, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { CryptoContext } from '../context/CryptoContext';
 import Chart from './Chart';
 import geckologo from '../assets/coingecko-logo.webp';

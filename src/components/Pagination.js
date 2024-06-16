@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import pageR from '../assets/pagination-right.svg';
 import { CryptoContext } from '../context/CryptoContext';
 
