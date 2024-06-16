@@ -29,7 +29,7 @@ function TrendingCoin({data}) { //data.item.id
             </span>
 
             <div className={`
-            px-2 py-2 flex items-center rounded-md bg-opacity-25 ml-auto responsi2
+            px-2 py-2 flex items-center rounded-lg bg-opacity-25 ml-auto responsi2
             ${data.data.price_change_percentage_24h[currency] > 0 
             ? 'bg-green text-green' : 'bg-red text-red'} 
             `}>

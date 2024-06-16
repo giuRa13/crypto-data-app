@@ -6,6 +6,7 @@ import { CryptoContext } from '../context/CryptoContext';
 import upSvg from '../assets/up.svg';
 import downSvg from '../assets/down.svg';
 import reloadSVG from '../assets/reload.svg';
+import {Bounce, toast } from "react-toastify";
 
 const SaveBtn = ({data}) => {
 
@@ -16,7 +17,20 @@ const SaveBtn = ({data}) => {
       saveCoin(data.id);
 
       if(allCoins.includes(data.id)){
-          removeCoin(data.id)
+          removeCoin(data.id);
+          toast.success('🦄 Coin removed from "Saved"!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            newestOnTop: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Bounce,
+            style: { background: '#d6436e', color: '#fff',  }
+            });
       }
       else{
           saveCoin(data.id)

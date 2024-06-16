@@ -6,7 +6,8 @@ import Pagination from './Pagination';
 import geckologo from '../assets/coingecko-logo.webp';
 import { Link } from 'react-router-dom';
 import { StorageContext } from '../context/StorageContext';
-import Loading from './Loading';
+import { Bounce, toast } from "react-toastify";
+//import Loading from './Loading';
 
 const SaveBtn = ({data}) => {
 
@@ -17,14 +18,44 @@ const SaveBtn = ({data}) => {
         saveCoin(data.id);
 
         if(allCoins.includes(data.id)){
-            removeCoin(data.id)
+            removeCoin(data.id);
+            toast.success('🦄 Coin removed from "Saved"!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                newestOnTop: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+                style: { background: '#d6436e', color: '#fff',  },
+                });
         }
         else{
-            saveCoin(data.id)
+            saveCoin(data.id);        
+            toast.success('🦄 Coin added to "Saved"!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                newestOnTop: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+                progressStyle: { background: '#E8DFD0' },
+                style: { background: '#25da72', color: '#fff' },               
+                });
         }
     };
 
     return(
+
+        
+      
         <button onClick={(e)=>handleClick(e)} 
         className='outline-0 border-0 bg-none cursor-pointer'>
              <svg className={`w-[3rem] ml-2.5 
@@ -34,6 +65,7 @@ const SaveBtn = ({data}) => {
                 <path  d="M9.6 15.65L12 13.8l2.4 1.85l-.9-3.05l2.25-1.6h-2.8L12 7.9l-.95 3.1h-2.8l2.25 1.6zm-1.91 2.696l1.614-5.33L5.115 10h5.216L12 4.462L13.67 10h5.215l-4.189 3.016l1.614 5.33L12 15.07zM12 11.775"/>
             </svg>
         </button>
+      
     )
 };
 
@@ -163,7 +195,7 @@ function TableComponent() {
 
         </div>  
         
-            <div className='flex items-center justify-between mt-10 capitalize'>
+            <div className='flex items-center justify-between mt-10 capitalize low'>
                 <div className='flex items-center'>
                 <span>Data provided by</span>
                   <a href="http://www.coingecko.com"

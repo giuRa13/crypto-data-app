@@ -1,10 +1,8 @@
 import React, { useContext } from 'react'
 import { TrendingContext } from '../context/TrendingContext'
 import TrendingCoin from '../components/TrendingCoin';
-import { Outlet } from 'react-router-dom';
 import reloadSVG from '../assets/reload.svg';
 import geckologo from '../assets/coingecko-logo.webp';
-import { data } from "autoprefixer";
 
 
 const Trending = () => {

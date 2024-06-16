@@ -35,10 +35,10 @@ function Filters() {
     >
         <Search />
 
-        <PerPage className='pons3'/>
+        <PerPage/>
 
-        <div className='flex '>
-          <form className='relative flex items-center mr-12' onSubmit={handleCurrencySubmit}>
+        <div className='flex pons3'>
+          <form className='relative flex items-center mr-12 sortedclass3' onSubmit={handleCurrencySubmit}>
             <label htmlFor='currency'
               className='relative justify-center items-center mr-2 font-bold'>Currency:</label>
             <input type='text' name='currency' placeholder='USD'
@@ -54,9 +54,9 @@ function Filters() {
           </form>
 
           <label className='relative flex justify-center items-center'>
-            <span className='font-bold mr-2'>Sort by:  </span>
+            <span className='font-bold mr-2 sortedclass'>Sort by:  </span>
             <select name='sortby' className='rounded bg-grey text-base border border-orange
-              pl-2  py-1 leading-4 capitalize  focus:outline-0'
+              pl-2  py-1 leading-4 capitalize  focus:outline-0 sortedclass2'
               onClick={handleSort}
               >
               <option value="market_cap_desc">market cap desc</option> 
@@ -67,7 +67,7 @@ function Filters() {
               <option value="id_desc">id desc</option>
             </select>
             <img src={downIcon} alt='submit' className='w-[1.2rem] h-auto
-              absolute right-1 top-2 pointer-events-none'/>
+              absolute right-1 top-2 pointer-events-none sortedclass4'/>
         </label>
 
         </div>

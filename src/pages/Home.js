@@ -5,9 +5,12 @@ import Navigation from '../components/Navigation'
 import { CryptoProvider } from '../context/CryptoContext'
 import { TrendingProvider } from '../context/TrendingContext'
 import { StorageProvider } from '../context/StorageContext'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   return (
+    
     <CryptoProvider>
     <TrendingProvider>
     <StorageProvider>
@@ -20,8 +23,10 @@ const Home = () => {
         font-nunito'>
     
     <div className='w-screen h-screen bg-gray-300 fixed -z-10'></div>
-
+    
         <Logo/>
+        <ToastContainer/>
+
         <Navigation/>
 
         <Outlet/> 
@@ -29,6 +34,7 @@ const Home = () => {
     </StorageProvider>
     </TrendingProvider>
     </CryptoProvider>
+
 
   )
 }

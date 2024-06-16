@@ -91,7 +91,7 @@ function Chart({id}) {
                 )
                 .then(res => res.json())
                 .then(json => json);
-                console.log("chart-data>>>",data);
+                //console.log("chart-data>>>",data);
                 /*let convertData = data.prices.map( item => {
                     return{
                         data: new Date(item[0]).toLocaleDateString(),

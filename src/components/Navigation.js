@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom'
 
 function Navigation() {
   return (
-    <nav className='w-[55%] mt-20 flex justify-around align-middle
-        border border-orange rounded-lg'>
+    <nav className='w-[60%] mt-24 flex justify-around align-middle
+        border border-orange rounded-lg navigation'>
         
     <NavLink 
         to="/"

@@ -21,7 +21,7 @@ export const StorageProvider = ({children}) => {
         else {
             let newCoin = [...oldCoins, coinId];
             setAllCoins(newCoin);
-            localStorage.setItem("coins", JSON.stringify(newCoin));
+            localStorage.setItem("coins", JSON.stringify(newCoin));          
         }
     };
     

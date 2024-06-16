@@ -108,6 +108,16 @@ select:focus > option:checked {
   .res45{
     width: 0%;
   }
+  .pons3{
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .low{
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 
 
@@ -121,7 +131,7 @@ select:focus > option:checked {
   }
 } 
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1050px) {
   .pons{
     display: block;
     height: 20%;
@@ -141,6 +151,33 @@ select:focus > option:checked {
   }
 } 
 
+@media only screen and (max-width: 700px) {
+  .navigation{
+    width: 70%
+  }
+}
+@media only screen and (max-width: 550px) {
+  .sortedclass{
+    width: 0%;
+    display: none
+  }
+  .sortedclass2{
+    margin: auto;
+    margin-top: 1rem;
+  }
+  .sortedclass3{
+    margin: auto;
+    margin-top: 1rem;
+  }
+  .sortedclass4{
+    display: none;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .navigation{
+    width: 90%
+  }
+}
 
 
 /* coin details */
@@ -163,6 +200,16 @@ select:focus > option:checked {
   .class3{
     margin-top: 3rem;
     justify-content: center;
+   
+  }
+  .classlinks{
+    margin: auto;
+    justify-content: center;
+   
+  }
+  .canvas-container {
+    height: 50vh;
+    width: 63vw;
   }
 }
 
@@ -178,18 +225,32 @@ select:focus > option:checked {
     flex-direction: row;
     justify-content: space-between;
   }
+  .class6{
+    margin-left: 0;
+  }
   .classleft{
-    width: 80%;
+    width: 85%;
   }
   .classright{
-    width: 95%;
+    width: 90%;
   }
+  /*.classchart{
+    border: none !important;
+  }*/
   .canvas-container {
     height: 50vh;
     width: 90vw;
   }
-  .classchart{
-    border: none !important;
+}
+
+@media only screen and (min-width: 700px) {
+  .hrup{
+    display: none;
+  }
+}
+@media only screen and (min-width: 900px) {
+  hr{
+    display: none;
   }
 }
 
