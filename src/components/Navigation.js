@@ -13,8 +13,8 @@ function Navigation() {
             return `w-full text-base text-center m-3
             ${//bg-gray-200
                 isActive 
-                ? "bg-orange text-gray-300" 
-                : "bg-darkgrey text-gray-100 hover:text-orange active:bg-orange active:text-gray-300"
+                ? "bg-orange text-darkgrey2 " 
+                : "bg-darkgrey text-gray-100 hover:text-grey active:bg-orange active:text-darkgrey2"
             }
             cursor-pointer border-0 rounded capitalize font-bold`;
         }}>
@@ -27,8 +27,8 @@ function Navigation() {
             return `w-full text-base text-center m-2.5
             ${
                 isActive 
-                ? "bg-orange text-gray-300" 
-                : "bg-darkgrey text-gray-100 hover:text-orange active:bg-orange active:text-gray-300"
+                ? "bg-orange text-darkgrey2" 
+                : "bg-darkgrey text-gray-100 hover:text-orange active:bg-orange active:text-darkgrey2 "
             }
             cursor-pointer border-0 rounded capitalize font-bold`;
         }}>
@@ -41,8 +41,8 @@ function Navigation() {
             return `w-full text-base text-center m-2.5
             ${
                 isActive 
-                ? "bg-orange text-gray-300" 
-                : "bg-darkgrey text-gray-100 hover:text-orange active:bg-orange active:text-gray-300"
+                ? "bg-orange text-darkgrey2 " 
+                : "bg-darkgrey text-gray-100 hover:text-orange active:bg-orange active:text-darkgrey2 "
             }
             cursor-pointer border-0 rounded capitalize font-bold`;
         }}>

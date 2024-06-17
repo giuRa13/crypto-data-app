@@ -75,8 +75,8 @@ const Saved = () => {
                     <tr>
                         <th className='py-3 w-[25%]' >coin</th>
                         <th className='py-3 w-[5%] res2' >rank</th>
-                        <th className='py-3 w-[10%]' >price</th>
-                        <th className='py-3 w-[10%]' >24H</th>
+                        <th className='py-3 w-[10%] res5' >price</th>
+                        <th className='py-3 w-[10%] ' >24H</th>
                         <th className='py-3 w-[10%] res25' >7D</th>
                         <th className='py-3 w-[10%] res45' >1M</th>
                         <th className='py-3 w-[15%] res' >total volume</th>
@@ -96,7 +96,7 @@ const Saved = () => {
     
                                         <SaveBtn data={data}/>
     
-                                        <Link to={`/${data.id}`} className='ml-6 cursor-pointer'>                                      
+                                        <Link to={`/${data.id}`} className='ml-6 cursor-pointer res10'>                                      
                                             <img className='w-[2.25rem] h-[2.25rem]' src={data.image} alt={data.name}/>
                                         </Link>
                                         <Link to={`/${data.id}`} className='ml-2 cursor-pointer'>
@@ -123,7 +123,7 @@ const Saved = () => {
                                             {Number(data.price_change_percentage_24h_in_currency).toFixed(2)} %
                                         </div>
                                     </td>
-                                    <td> 
+                                    <td className='res2'> 
                                         <div className={
                                                 data.price_change_percentage_7d_in_currency > 0 ? 
                                                 "text-green flex justify-center items-center res2" 
@@ -133,7 +133,7 @@ const Saved = () => {
                                             {Number(data.price_change_percentage_7d_in_currency).toFixed(2)} %
                                         </div>
                                     </td>
-                                    <td> 
+                                    <td className='res22'> 
                                         <div className={
                                                 data.price_change_percentage_30d_in_currency > 0 ? 
                                                 "text-green flex justify-center items-center res4" 

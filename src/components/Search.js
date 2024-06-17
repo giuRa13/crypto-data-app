@@ -55,14 +55,14 @@ const SearchInput = ({handleSearch}) => {
 
   {
     searchText.length > 0 ?
-      <ul className='index absolute top-10 left-5 w-96 h-96 rounded-lg
+      <ul className='index absolute top-10  w-96 h-96 rounded-lg
         overflow-x-hidden py-2 bg-darkgrey2 bg-opacity-60 
         backdrop-blur-md' 
         >
         {
           searchData ?  
           searchData.map(item => 
-            {return<li className='flex items-center ml-2 my-3 cursor-pointer hover:bg-gray-200' 
+            {return<li className='flex items-center py-2 my-3 cursor-pointer hover:bg-gray-200' 
           key={item.id}
           onClick={()=>selectCoin(item.id)}
           >

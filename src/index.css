@@ -72,10 +72,11 @@ select:focus > option:checked {
 @media only screen and (max-width: 950px) {
   .res2{
     display: none !important;
+    width: 0%;
   }
   .res25{
-    color: var(--orange);
-    width: 1%;
+    display: none;
+    width: 0%;
   }
   .res3{
     /*border: none !important;*/
@@ -105,11 +106,28 @@ select:focus > option:checked {
   .res5{
     width: 20%;
   }
-  .res45{
-    width: 0%;
-  }
   .pons3{
     flex-direction: column;
+  }
+  .res22{
+    width: 0%;
+    display: none;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .res5{
+    width: 0%;
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .res9{
+    margin:auto;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .res10{
+    margin-left: 0;
   }
 }
 
