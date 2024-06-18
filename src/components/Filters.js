@@ -53,7 +53,7 @@ function Filters() {
             </button>      
           </form>
 
-          <label className='relative flex justify-center items-center'>
+          <label className='relative flex justify-center items-center pons35'>
             <span className='font-bold mr-2 sortedclass'>Sort by:  </span>
             <select name='sortby' className='rounded bg-grey text-base border border-orange
               pl-2  py-1 leading-4 capitalize  focus:outline-0 sortedclass2'

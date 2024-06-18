@@ -177,7 +177,6 @@ select:focus > option:checked {
     display: block;
     height: 20%;
     flex-direction: column;
-    
   }
   .pons2{
     width: 60px;
@@ -191,13 +190,25 @@ select:focus > option:checked {
     z-index: 10;
   }
 } 
+@media only screen and (max-width: 1050px) {
+  .pons3{
+    margin-top: 1rem;
+  }
+  .pons35{
+    margin-left: auto;
+  }
+}
 
 @media only screen and (max-width: 700px) {
   .navigation{
     width: 70%
   }
 }
+
 @media only screen and (max-width: 550px) {
+  .pons3{
+    margin-top: 0;
+  }
   .sortedclass{
     width: 0%;
     display: none
