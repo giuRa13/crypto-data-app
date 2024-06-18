@@ -62,7 +62,7 @@ const SearchInput = ({handleSearch}) => {
         {
           searchData ?  
           searchData.map(item => 
-            {return<li className='flex items-center py-2 my-3 cursor-pointer hover:bg-gray-200' 
+            {return<li className='flex items-center mx-2 py-2 my-3 cursor-pointer hover:bg-gray-200' 
           key={item.id}
           onClick={()=>selectCoin(item.id)}
           >

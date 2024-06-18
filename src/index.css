@@ -43,6 +43,12 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--orange);
 }
+::-webkit-scrollbar-track-piece {
+  background: var(--grey);
+}
+::-webkit-scrollbar-corner{
+  background: var(--grey);
+}
 
 select:focus > option:checked { 
   background: #fc5b23 !important;
@@ -137,6 +143,23 @@ select:focus > option:checked {
     gap: 2rem;
   }
 }
+
+@media only screen and (min-width: 100px) {
+  .borderclass{
+    border-top-left-radius: 0.5rem;
+  }
+}
+@media only screen and (max-width: 1250px) {
+  .borderclass2{
+    border-top-right-radius: 0.5rem;
+  }
+}
+@media only screen and (min-width: 0px) {
+  .borderclass3{
+    border-top-right-radius: 0.5rem;
+  }
+}
+
 
 
 /* filter */

@@ -7,6 +7,7 @@ import upSvg from '../assets/up.svg';
 import downSvg from '../assets/down.svg';
 import reloadSVG from '../assets/reload.svg';
 import {Bounce, toast } from "react-toastify";
+import geckologo from '../assets/coingecko-logo.webp';
 
 const SaveBtn = ({data}) => {
 
@@ -66,21 +67,21 @@ const Saved = () => {
   return (
     <section className='w-[80%] h-full flex flex-col mt-12 mb-24 relative respo'>
 
-          <div className='w-full min-h-[20vh]   mt-12 border border-orange rounded-lg res3'>
+          <div className='w-full min-h-[20vh]  mt-12  rounded-lg res3'>
             {
               saveData ?
                 <table className='w-full table-auto'>      
                 <thead className='capitalize text-darkgrey2 text-base font-bold bg-orange 
                     border-b border-grey'>
                     <tr>
-                        <th className='py-3 w-[25%]' >coin</th>
+                        <th className='py-3 w-[25%] borderclass ' >coin</th>
                         <th className='py-3 w-[5%] res2' >rank</th>
                         <th className='py-3 w-[10%] res5' >price</th>
                         <th className='py-3 w-[10%] ' >24H</th>
                         <th className='py-3 w-[10%] res25' >7D</th>
-                        <th className='py-3 w-[10%] res45' >1M</th>
+                        <th className='py-3 w-[10%] res45 borderclass2' >1M</th>
                         <th className='py-3 w-[15%] res' >total volume</th>
-                        <th className='py-3 w-[15%] res' >market cap</th>
+                        <th className='py-3 w-[15%] res borderclass3' >market cap</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -180,6 +181,16 @@ const Saved = () => {
             </button>
 
           </div>
+
+          <div className='flex items-center justify-center mt-20 capitalize'>
+                <div className='flex items-center'>
+                <span>Data provided by</span>
+                  <a href="http://www.coingecko.com"
+                    rel="noreferrer"
+                    target={"_blank"}
+                    > <img src={geckologo} alt='gecko' className='w-[8rem] h-[5-rem] ml-2'/> </a>  
+                </div>             
+            </div> 
 
     <Outlet/>
     </section>

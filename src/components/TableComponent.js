@@ -83,22 +83,22 @@ function TableComponent() {
     <>
     <div className='
         flex flex-col mt-12
-        border border-orange rounded-lg res3'
+         rounded-lg res3'
     >
         {
             cryptoData ? 
         <table className='w-full table-auto pons3'>      
-            <thead className='capitalize text-darkgrey2 text-base font-bold bg-orange 
-                border-b border-grey'>
+            <thead className='capitalize text-darkgrey2 text-base font-bold bg-orange
+                border-b border-grey '>
                 <tr>
-                    <th className='py-3 w-[25%] res9' >coin</th>
+                    <th className='py-3 w-[25%] res9 borderclass' >coin</th>
                     <th className='py-3 w-[5%] res2' >rank</th>
                     <th className='py-3 w-[10%] res5' >price</th>
                     <th className='py-3 w-[10%] ' >24H</th>
                     <th className='py-3 w-[10%] res25' >7D</th>
-                    <th className='py-3 w-[10%] res45' >1M</th>
+                    <th className='py-3 w-[10%] res45 borderclass2' >1M</th>
                     <th className='py-3 w-[15%] res' >total volume</th>
-                    <th className='py-3 w-[15%] res' >market cap</th>
+                    <th className='py-3 w-[15%] res borderclass3' >market cap</th>
                 </tr>
             </thead>
             <tbody>

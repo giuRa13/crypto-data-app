@@ -14,13 +14,13 @@ function TrendingCoin({data}) { //data.item.id
 
   return (
     <div onClick={()=>getDetails(data.id)} 
-    className="w-[40%] bg-gray-200 mb-12
-    last:mb-0 rounded-lg p-4 relative cursor-pointer
-    hover:bg-gray-100 hover:bg-opacity-40 responsi5">
+    className="w-[40%] bg-darkgrey2 mb-12
+    last:mb-0 rounded-lg p-6 relative cursor-pointer
+     hover:bg-gray-200 responsi5">
     {   data  ? (
         <>
 
-        <h3 className='flex flex-row items-center justify-start mb-4 responsi'>
+        <h3 className='flex flex-row items-center justify-start mb-6 responsi'>
             <img className='w-[1.5rem] h-[1.5rem] mx-2 my-2 rounded-full' src={data.large} alt={data.id}/>
             <span className=' text-lg font-bold'>{data.name}</span>    
             <span className='uppercase bg-orange text-orange rounded
@@ -73,7 +73,7 @@ function TrendingCoin({data}) { //data.item.id
         </h3>
 
         <img className='w-[25%] h-auto rounded-full
-        absolute bottom-2 right-1 -translate-y-0' 
+        absolute bottom-0 right-0 -translate-y-0' 
         src={data.large} alt={data.name}/>
 
         </>
