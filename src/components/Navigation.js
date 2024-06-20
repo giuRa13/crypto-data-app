@@ -14,7 +14,7 @@ function Navigation() {
             ${//bg-gray-200
                 isActive 
                 ? "bg-orange text-darkgrey2 " 
-                : "bg-grey text-gray-100 hover:text-grey active:bg-orange active:text-darkgrey2"
+                : "bg-darkgrey text-gray-100 hover:text-grey active:bg-orange active:text-darkgrey2"
             }
             cursor-pointer border-0 rounded capitalize font-bold hover:opacity-70`;
         }}>
@@ -28,7 +28,7 @@ function Navigation() {
             ${
                 isActive 
                 ? "bg-orange text-darkgrey2" 
-                : "bg-grey text-gray-100 hover:text-orange active:bg-orange active:text-darkgrey2 "
+                : "bg-darkgrey text-gray-100 hover:text-orange active:bg-orange active:text-darkgrey2 "
             }
             cursor-pointer border-0 rounded capitalize font-bold hover:opacity-70`;
         }}>
@@ -42,7 +42,7 @@ function Navigation() {
             ${
                 isActive 
                 ? "bg-orange text-darkgrey2 " 
-                : "bg-grey text-gray-100 hover:text-orange active:bg-orange active:text-darkgrey2 "
+                : "bg-darkgrey text-gray-100 hover:text-orange active:bg-orange active:text-darkgrey2 "
             }
             cursor-pointer border-0 rounded capitalize font-bold hover:opacity-70`;
         }}>

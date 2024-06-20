@@ -7,10 +7,16 @@ import { TrendingProvider } from '../context/TrendingContext'
 import { StorageProvider } from '../context/StorageContext'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from 'react-helmet-async'
 
 const Home = () => {
-  return (
-    
+  return ( <>
+    <Helmet>
+      <title>Home</title>
+      <meta name='description' content='Cryptocurrency Data in real time - Coindata-Search - explore the cryptos market'/>
+      <link rel='canonical' href='/'/>
+    </Helmet>
+
     <CryptoProvider>
     <TrendingProvider>
     <StorageProvider>
@@ -34,7 +40,7 @@ const Home = () => {
     </StorageProvider>
     </TrendingProvider>
     </CryptoProvider>
-
+    </>
 
   )
 }

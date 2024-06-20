@@ -1,0 +1,3 @@
+https://coindata-search.netlify.app/
+https://coindata-search.netlify.app/trending
+https://coindata-search.netlify.app/saved

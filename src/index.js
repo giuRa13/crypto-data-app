@@ -7,6 +7,7 @@ import Crypto from './pages/Crypto';
 import Trending from './pages/Trending';
 import Saved from './pages/Saved';
 import CoinDetails from './components/CoinDetails';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 const router = createBrowserRouter([
@@ -49,7 +50,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <HelmetProvider>
     <RouterProvider router={router} />
+    </HelmetProvider>
   </React.StrictMode>
 );
 

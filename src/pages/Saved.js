@@ -8,6 +8,7 @@ import downSvg from '../assets/down.svg';
 import reloadSVG from '../assets/reload.svg';
 import {Bounce, toast } from "react-toastify";
 import geckologo from '../assets/coingecko-logo.webp';
+import { Helmet } from 'react-helmet-async';
 
 const SaveBtn = ({data}) => {
 
@@ -64,7 +65,13 @@ const Saved = () => {
 }
 
 
-  return (
+  return ( <>
+    <Helmet>
+    <title>Home</title>
+    <meta name='description' content='Save your favourites coins - Coindata-Search - explore the cryptos market'/>
+    <link rel='canonical' href='/trending'/>
+    </Helmet>
+
     <section className='w-[80%] h-full flex flex-col mt-12 mb-24 relative respo'>
 
           <div className='w-full min-h-[20vh]  mt-12  rounded-lg res3'>
@@ -194,6 +201,7 @@ const Saved = () => {
 
     <Outlet/>
     </section>
+    </>
   )
 }
 

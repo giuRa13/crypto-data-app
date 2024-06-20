@@ -3,6 +3,7 @@ import { TrendingContext } from '../context/TrendingContext'
 import TrendingCoin from '../components/TrendingCoin';
 import reloadSVG from '../assets/reload.svg';
 import geckologo from '../assets/coingecko-logo.webp';
+import { Helmet } from 'react-helmet-async';
 
 
 const Trending = () => {
@@ -10,6 +11,12 @@ const Trending = () => {
   const {trendData, resetTrendingResult} = useContext(TrendingContext);
 
   return (
+    <>
+    <Helmet>
+    <title>Home</title>
+    <meta name='description' content='Trending coins at the momemt - Coindata-Search - explore the cryptos market'/>
+    <link rel='canonical' href='/trending'/>
+    </Helmet>
     
     <section className=' w-[80%] h-full flex flex-col mt-12 mb-24 relative responsi3'>
           
@@ -49,7 +56,7 @@ const Trending = () => {
 
             
     </section>
-    
+    </>
   )
 }
 
